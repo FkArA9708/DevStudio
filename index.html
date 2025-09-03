@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeerPlatform - Jouw educatieve hub</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>LeerPlatform</span>
+                </div>
+                
+                <nav>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#"><i class="fas fa-book"></i> Cursussen</a></li>
+                        <li><a href="#"><i class="fas fa-chart-line"></i> Voortgang</a></li>
+                        <li><a href="#"><i class="fas fa-question-circle"></i> Help</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="user-actions">
+                    <a href="#" class="btn btn-primary"><i class="fas fa-user"></i> Inloggen</a>
+                    <a href="#" class="btn btn-outline"><i class="fas fa-user-plus"></i> Registreren</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Leer op jouw tempo en volg je voortgang</h1>
+            <p>Ons platform biedt diverse cursussen aan met een geavanceerd volgsysteem om je leerproces inzichtelijk te maken.</p>
+            <a href="#" class="btn btn-primary"><i class="fas fa-search"></i> Ontdek cursussen</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <h2 class="section-title">Populaire Cursussen</h2>
+        <div class="courses">
+            <div class="course-card">
+                <div class="course-img">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="course-content">
+                    <h3>Web Development</h3>
+                    <p>Leer hoe je moderne websites bouwt met HTML, CSS, JavaScript en PHP.</p>
+                    <div class="course-meta">
+                        <span><i class="fas fa-film"></i> 24 lessen</span>
+                        <span><i class="fas fa-clock"></i> 12 uur</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 65%;"></div>
+                    </div>
+                    <p>65% voltooid</p>
+                    <a href="#" class="btn btn-primary"><i class="fas fa-play-circle"></i> Verder leren</a>
+                </div>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-img">
+                    <i class="fas fa-database"></i>
+                </div>
+                <div class="course-content">
+                    <h3>MySQL Databasebeheer</h3>
+                    <p>Leer databases ontwerpen, query's schrijven en gegevens beheren.</p>
+                    <div class="course-meta">
+                        <span><i class="fas fa-film"></i> 18 lessen</span>
+                        <span><i class="fas fa-clock"></i> 9 uur</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 30%;"></div>
+                    </div>
+                    <p>30% voltooid</p>
+                    <a href="#" class="btn btn-primary"><i class="fas fa-play-circle"></i> Verder leren</a>
+                </div>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-img">
+                    <i class="fas fa-paint-brush"></i>
+                </div>
+                <div class="course-content">
+                    <h3>CSS en UI Design</h3>
+                    <p>Leer hoe je prachtige gebruikersinterfaces ontwerpt met CSS.</p>
+                    <div class="course-meta">
+                        <span><i class="fas fa-film"></i> 16 lessen</span>
+                        <span><i class="fas fa-clock"></i> 8 uur</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 10%;"></div>
+                    </div>
+                    <p>10% voltooid</p>
+                    <a href="#" class="btn btn-primary"><i class="fas fa-play-circle"></i> Verder leren</a>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Jouw Voortgangsdashboard</h2>
+        <div class="dashboard">
+            <div class="stats">
+                <div class="stat-card">
+                    <i class="fas fa-book-open"></i>
+                    <h3>5</h3>
+                    <p>Actieve cursussen</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>42</h3>
+                    <p>Voltooide lessen</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>26</h3>
+                    <p>Leeruren deze maand</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-trophy"></i>
+                    <h3>3</h3>
+                    <p>Behaalde certificaten</p>
+                </div>
+            </div>
+            
+            <h3>Jouw voortgang per cursus</h3>
+            <div class="chart-container">
+                <p>Hier zou een grafiek komen die je voortgang per cursus weergeeft (te implementeren met JavaScript)</p>
+            </div>
+            
+            <h3>Recente activiteit</h3>
+            <ul>
+                <li>✔ Je hebt les "PHP Formulieren" voltooid - Web Development</li>
+                <li>✔ Je hebt quiz "Database Normalisatie" voltooid - MySQL Databasebeheer</li>
+                <li>▶ Je bent begonnen met les "CSS Flexbox" - CSS en UI Design</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>LeerPlatform</h3>
+                    <p>Het beste platform om nieuwe vaardigheden te leren en je voortgang te volgen.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Navigatie</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Cursussen</a></li>
+                        <li><a href="#">Over ons</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Topcursussen</h3>
+                    <ul>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">MySQL Databasebeheer</a></li>
+                        <li><a href="#">CSS en UI Design</a></li>
+                        <li><a href="#">JavaScript Programmeren</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@leerplatform.nl</li>
+                        <li><i class="fas fa-phone"></i> +31 123 456 789</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Nederland</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 LeerPlatform. Alle rechten voorbehouden.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js">
+    </script>
+</body>
+</html>
