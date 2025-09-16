@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevStudio - Help Center</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #7209b7;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --success-color: #4cc9f0;
+            --warning-color: #f72585;
+            --gray-color: #6c757d;
+            --light-gray: #e9ecef;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fb;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        nav ul li a i {
+            margin-right: 8px;
+        }
+        
+        nav ul li a:hover {
+            opacity: 0.8;
+        }
+        
+        .user-actions {
+            display: flex;
+            align-items: center;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn i {
+            margin-right: 8px;
+        }
+        
+        .btn-primary {
+            background-color: white;
+            color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--light-gray);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+        
+        /* Help Content */
+        .help-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            border-radius: 0 0 15px 15px;
+            margin-bottom: 40px;
+        }
+        
+        .help-hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .help-hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 50px;
+            border: none;
+            font-size: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .search-box button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background: var(--primary-color);
+            border: none;
+            color: white;
+            border-radius: 50px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+        
+        .help-content {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        @media (max-width: 992px) {
+            .help-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .help-categories {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+        }
+        
+        .help-categories h3 {
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-gray);
+        }
+        
+        .category-list {
+            list-style: none;
+        }
+        
+        .category-list li {
+            margin-bottom: 15px;
+        }
+        
+        .category-list a {
+            color: var(--dark-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .category-list a:hover {
+            background-color: var(--light-gray);
+        }
+        
+        .category-list i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+        
+        .faq-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .faq-header h2 {
+            color: var(--secondary-color);
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .faq-question {
+            padding: 20px;
+            background-color: var(--light-gray);
+            color: var(--dark-color);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+        }
+        
+        .faq-answer {
+            padding: 0 20px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-active .faq-answer {
+            max-height: 500px;
+            padding: 20px;
+        }
+        
+        .faq-active .faq-question {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s;
+        }
+        
+        .faq-active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .contact-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 60px;
+        }
+        
+        .contact-section h2 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .contact-method i {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            width: 30px;
+        }
+        
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .contact-form button {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .contact-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 40px 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+            
+            .user-actions {
+                margin-top: 20px;
+            }
+            
+            .help-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .help-hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>DevStudio</span>
+                </div>
+                
+                <nav>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="cursussen.html"><i class="fas fa-book"></i> Cursussen</a></li>
+                        <li><a href="voortgang.html"><i class="fas fa-chart-line"></i> Voortgang</a></li>
+                        <li><a href="help.html" class="active"><i class="fas fa-question-circle"></i> Help</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="user-actions">
+                    <a href="#" class="btn btn-primary"><i class="fas fa-user"></i> Inloggen</a>
+                    <a href="#" class="btn btn-outline"><i class="fas fa-user-plus"></i> Registreren</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="help-hero">
+        <div class="container">
+            <h1>Hoe kunnen we je helpen?</h1>
+            <p>Vind antwoorden op veelgestelde vragen of neem contact met ons op voor persoonlijke hulp.</p>
+            
+            <div class="search-box">
+                <input type="text" placeholder="Zoek in helponderwerpen...">
+                <button><i class="fas fa-search"></i> Zoeken</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="help-content">
+            <div class="help-categories">
+                <h3>Help Categorieën</h3>
+                <ul class="category-list">
+                    <li><a href="#"><i class="fas fa-user-circle"></i> Accountbeheer</a></li>
+                    <li><a href="#"><i class="fas fa-book"></i> Cursussen</a></li>
+                    <li><a href="#"><i class="fas fa-credit-card"></i> Betalingen</a></li>
+                    <li><a href="#"><i class="fas fa-laptop"></i> Technische problemen</a></li>
+                    <li><a href="#"><i class="fas fa-certificate"></i> Certificaten</a></li>
+                    <li><a href="#"><i class="fas fa-mobile-alt"></i> Appgebruik</a></li>
+                    <li><a href="#"><i class="fas fa-chart-line"></i> Voortgang</a></li>
+                </ul>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-header">
+                    <h2>Veelgestelde Vragen</h2>
+                    <p>25 artikelen</p>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Hoe maak ik een account aan?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Om een account aan te maken, klik je op de 'Registreren' knop in de rechterbovenhoek van de website. Vul je gegevens in (naam, e-mailadres en wachtwoord) en klik op 'Account aanmaken'. Je ontvangt een bevestigingsmail om je account te activeren.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Hoe kan ik een cursus toevoegen?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ga naar de cursuspagina en blader door de beschikbare cursussen. Klik op de cursus die je wilt volgen en vervolgens op de 'Toevoegen aan mijn cursussen' knop. De cursus wordt nu toegevoegd aan je persoonlijke dashboard.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Hoe werkt het voortgangssysteem?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ons voortgangssysteem houdt bij welke lessen je hebt voltooid en je scores voor quizzen. Je kunt je voortgang bekijken op je persoonlijke dashboard, waar je ook badges en certificaten kunt verdienen door cursussen af te ronden.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Kan ik mijn betalingsgegevens wijzigen?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ja, je kunt je betalingsgegevens wijzigen door naar je accountinstellingen te gaan en te klikken op 'Betalingsmethoden'. Hier kun je nieuwe betalingsgegevens toevoegen of bestaande informatie wijzigen.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Hoe download ik mijn certificaat?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Zodra je een cursus succesvol hebt afgerond (alle lessen voltooid en de eindquiz behaald), kun je naar de cursuspagina gaan en klikken op 'Certificaat downloaden'. Je ontvangt een PDF-certificaat dat je kunt printen of delen.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Wat moet ik doen als ik mijn wachtwoord ben vergeten?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Klik op de 'Wachtwoord vergeten?' link op de inlogpagina. Voer je e-mailadres in en je ontvangt een mail met instructies om je wachtwoord opnieuw in te stellen.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-section">
+            <h2>Neem contact met ons op</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Contact informatie</h3>
+                    
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>E-mail</h4>
+                            <p>info@devstudio.nl</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Telefoon</h4>
+                            <p>+31 123 456 789</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Bereikbaarheid</h4>
+                            <p>Maandag - Vrijdag: 9:00 - 17:00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-method">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Adres</h4>
+                            <p>Developerstraat 123, Amsterdam</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Naam</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-mailadres</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Onderwerp</label>
+                            <select id="subject">
+                                <option>Algemene vraag</option>
+                                <option>Technisch probleem</option>
+                                <option>Accountvraag</option>
+                                <option>Betalingsvraag</option>
+                                <option>Feedback</option>
+                                <option>Anders</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Bericht</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        
+                        <button type="submit"><i class="fas fa-paper-plane"></i> Verstuur bericht</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>DevStudio</h3>
+                    <p>Het beste platform om nieuwe vaardigheden te leren en je voortgang te volgen.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Navigatie</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="cursussen.html">Cursussen</a></li>
+                        <li><a href="voortgang.html">Voortgang</a></li>
+                        <li><a href="help.html">Help</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Topcursussen</h3>
+                    <ul>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">MySQL Databasebeheer</a></li>
+                        <li><a href="#">CSS en UI Design</a></li>
+                        <li><a href="#">JavaScript Programmeren</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@devstudio.nl</li>
+                        <li><i class="fas fa-phone"></i> +31 123 456 789</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Nederland</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 DevStudio. Alle rechten voorbehouden.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ functionaliteit
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const item = question.parentElement;
+                    item.classList.toggle('faq-active');
+                });
+            });
+            
+            // Zoekfunctionaliteit
+            const searchBox = document.querySelector('.search-box input');
+            const searchButton = document.querySelector('.search-box button');
+            
+            searchButton.addEventListener('click', function() {
+                performSearch();
+            });
+            
+            searchBox.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+            
+            function performSearch() {
+                const searchTerm = searchBox.value.trim();
+                if (searchTerm.length > 2) {
+                    // Hier zou de echte zoekfunctionaliteit komen
+                    alert('Zoeken naar: ' + searchTerm);
+                    // In een echte implementatie zou je de FAQ-items filteren
+                } else {
+                    alert('Voer minimaal 3 tekens in om te zoeken');
+                }
+            }
+            
+            // Form validatie
+            const contactForm = document.querySelector('.contact-form form');
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+                
+                if (name && email && message) {
+                    alert('Bedankt voor je bericht! We nemen zo snel mogelijk contact met je op.');
+                    contactForm.reset();
+                } else {
+                    alert('Vul alle verplichte velden in');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
